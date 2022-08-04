@@ -1,6 +1,6 @@
 # TheFoxAndRabbit
 这是一个狐狸吃兔子的地图，参考[mooc翁恺老师的视频](https://www.icourse163.org/learn/ZJU-1001542001?tid=1467810462#/learn/content?type=detail&id=1249310254)
-展示![FoxAndRabbit]![Uploading FoxAndRabbit.gif…]()
+展示![FoxAndRabbit](https://github.com/winingYang/TheFoxAndRabbit/blob/master/FoxAndRabbit.gif)
 # 地图规则
 ## 1
 总所周知：兔子吃草，狐狸吃兔子，所以我们的这两种动物都有一种行为————捕食（hunt），当然兔子吃的草还没有模拟出来。

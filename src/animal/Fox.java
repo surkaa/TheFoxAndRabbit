@@ -51,7 +51,8 @@ public class Fox extends Animal implements Action {
         }
         // 获得体力
         if (maxLocation != null) {
-            this.gainEnergy(rabbits.get(maxLocation));
+            double energy = rabbits.get(maxLocation).getEnergy();
+            this.addEnergy(energy);
             return maxLocation;
         }
         return null;
@@ -68,10 +69,10 @@ public class Fox extends Animal implements Action {
 
     @Override
     public Location move(ArrayList<Location> emptyNeighbors) {
-        if (emptyNeighbors.isEmpty() || getEnergy() < 0.2 || Math.random() > getVitality()) {
+        if (emptyNeighbors.isEmpty() || getEnergy() < 0.5 || Math.random() > getVitality()) {
             return null;
         }
-        addEnergy(-0.2);
+        addEnergy(-0.5);
         return emptyNeighbors.get((int) (Math.random() * emptyNeighbors.size()));
     }
 }

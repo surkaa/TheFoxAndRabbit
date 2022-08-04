@@ -1,5 +1,5 @@
 import field.Field;
-import field.View;
+import ui.ViewMap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +16,11 @@ public class GameMachine {
         game.runs(1000);
     }
     private final Field theField;
-    private final View view;
+    private final ViewMap view;
 
     public GameMachine(int width, int height, int size, double numsOfRabbits, double numsOfFoxes) {
         theField = new Field(width, height, numsOfRabbits, numsOfFoxes);
-        view = new View(size, theField);
+        view = new ViewMap(size, theField);
         JFrame frame = new JFrame("Game of Fox and Rabbit");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

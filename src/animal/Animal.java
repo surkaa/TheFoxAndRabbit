@@ -60,16 +60,6 @@ public abstract class Animal {
     }
 
     /**
-     * 根据捕食到的动物的活力值，更新动物的体力值
-     */
-    protected void gainEnergy(Animal huntedAnimal) {
-        energy += huntedAnimal.getVitality();
-        if (energy > 1) {
-            energy = 1;
-        }
-    }
-
-    /**
      * 长大
      * @return 动物该死就得死了
      */

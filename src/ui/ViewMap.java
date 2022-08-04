@@ -1,14 +1,15 @@
-package field;
+package ui;
 
 import action.Action;
+import field.*;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.awt.*;
 
-public class View extends JPanel {
+public class ViewMap extends JPanel {
     private final int GRID_SIZE;
     private final Field theField;
-    public View(int grid_size, Field theField) {
+    public ViewMap(int grid_size, Field theField) {
         GRID_SIZE = grid_size;
         this.theField = theField;
     }

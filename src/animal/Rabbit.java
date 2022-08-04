@@ -24,7 +24,7 @@ public class Rabbit extends Animal implements Action {
 
     @Override
     public Location hunt(HashMap<Location, Animal> neighbors) {
-        addEnergy(0.5);
+        addEnergy(0.3);
         return null;
     }
 
@@ -33,7 +33,7 @@ public class Rabbit extends Animal implements Action {
         if (emptyNeighbors.isEmpty() || getEnergy() < 0.2 || Math.random() > getVitality()) {
             return null;
         }
-        clearEnergy();
+        addEnergy(-0.2);
         return emptyNeighbors.get((int) (Math.random() * emptyNeighbors.size()));
     }
 
@@ -42,7 +42,7 @@ public class Rabbit extends Animal implements Action {
         if (emptyNeighbors.isEmpty() || getEnergy() < 0.2 || Math.random() > getVitality()) {
             return null;
         }
-        clearEnergy();
+        addEnergy(-0.1);
         return emptyNeighbors.get((int) (Math.random() * emptyNeighbors.size()));
     }
 }

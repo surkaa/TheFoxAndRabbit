@@ -27,9 +27,9 @@ public class Field {
             for (int j = 0; j < height; j++) {
                 double random = Math.random();
                 if (random < numsOfRabbits) {
-                    theField[i][j] = new Rabbit();
+                    theField[i][j] = new Rabbit(Math.random());
                 } else if (random < numsOfRabbits + numsOfFoxes) {
-                    theField[i][j] = new Fox();
+                    theField[i][j] = new Fox(Math.random());
                 } else {
                     theField[i][j] = null;
                 }
@@ -38,26 +38,26 @@ public class Field {
     }
 
     public Action getAction(Location L) {
-        return theField[L.getX()][L.getY()];
+        return theField[L.x()][L.y()];
     }
 
     public void clear(Location L) {
-        theField[L.getX()][L.getY()] = null;
+        theField[L.x()][L.y()] = null;
     }
 
     public void moveAction(Location L, Action action) {
-        theField[L.getX()][L.getY()] = action;
+        theField[L.x()][L.y()] = action;
     }
 
     public void newAction(Location L, Action action) {
-        theField[L.getX()][L.getY()] = action;
+        theField[L.x()][L.y()] = action;
     }
 
     public ArrayList<Location> getEmptyLocations(Location L) {
         ArrayList<Location> emptyLocations = new ArrayList<>();
-        for (int i = L.getX() - 1; i <= L.getX() + 1; i++) {
-            for (int j = L.getY() - 1; j <= L.getY() + 1; j++) {
-                if (i >= 0 && i < width && j >= 0 && j < height && !(i == L.getX() && j == L.getY())) {
+        for (int i = L.x() - 1; i <= L.x() + 1; i++) {
+            for (int j = L.y() - 1; j <= L.y() + 1; j++) {
+                if (i >= 0 && i < width && j >= 0 && j < height && !(i == L.x() && j == L.y())) {
                     if (theField[i][j] == null) {
                         emptyLocations.add(new Location(i, j));
                     }
@@ -69,13 +69,11 @@ public class Field {
 
     public HashMap<Location, Animal> getNeighbors(Location L) {
         HashMap<Location, Animal> neighbors = new HashMap<>();
-        for (int i = L.getX() - 1; i <= L.getX() + 1; i++) {
-            for (int j = L.getY() - 1; j <= L.getY() + 1; j++) {
-                if (i >= 0 && i < width && j >= 0 && j < height && !(i == L.getX() && j == L.getY())) {
-                    if (theField[i][j] != null) {
-                        Location location = new Location(i, j);
-                        neighbors.put(location, (Animal) getAction(location));
-                    }
+        for (int i = L.x() - 1; i <= L.x() + 1; i++) {
+            for (int j = L.y() - 1; j <= L.y() + 1; j++) {
+                if (i >= 0 && i < width && j >= 0 && j < height && !(i == L.x() && j == L.y())) {
+                    Location location = new Location(i, j);
+                    neighbors.put(location, (Animal) getAction(location));
                 }
             }
         }
@@ -93,7 +91,7 @@ public class Field {
     }
 
     public void step(Location L) {
-        Animal animal = (Animal) theField[L.getX()][L.getY()];
+        Animal animal = (Animal) theField[L.x()][L.y()];
         if (animal.grow()) {
             clear(L);
             return;
@@ -121,9 +119,9 @@ public class Field {
         }
 
         if (getAction(L) instanceof Rabbit) {
-            newAction(newLocation, new Rabbit(0));
+            newAction(newLocation, new Rabbit());
         } else if (getAction(L) instanceof Fox) {
-            newAction(newLocation, new Fox(0));
+            newAction(newLocation, new Fox());
         }
     }
 

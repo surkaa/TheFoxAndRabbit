@@ -7,13 +7,19 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static WorldManager.GameMachine.RabbitWidth;
+import static WorldManager.GameMachine.RabbitHeight;
+
 public class Rabbit extends Animal implements Action {
+
+    private static final int RABBIT_MAX_AGE = 10;
+
     public Rabbit() {
-        this((int) (Math.random() * 10));
+        this(0);
     }
 
-    public Rabbit(int age) {
-        super(age, 10, Color.YELLOW);
+    public Rabbit(double random) {
+        super((int) (random * RABBIT_MAX_AGE), RABBIT_MAX_AGE, Color.YELLOW);
     }
 
     @Override
@@ -24,6 +30,16 @@ public class Rabbit extends Animal implements Action {
 
     @Override
     public Location hunt(HashMap<Location, Animal> neighbors) {
+        if (neighbors.isEmpty()) {
+            return null;
+        }
+        int x = 0, y = 0;
+        for (Location location : neighbors.keySet()) {
+            x += location.x();
+            y += location.y();
+        }
+        double averageX = (double) x / neighbors.size();
+        double averageY = (double) y / neighbors.size();
         addEnergy(0.3);
         return null;
     }
@@ -33,7 +49,7 @@ public class Rabbit extends Animal implements Action {
         if (emptyNeighbors.isEmpty() || getEnergy() < 0.2 || Math.random() > getVitality()) {
             return null;
         }
-        addEnergy(-0.2);
+        clearEnergy();
         return emptyNeighbors.get((int) (Math.random() * emptyNeighbors.size()));
     }
 

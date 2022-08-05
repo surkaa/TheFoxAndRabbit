@@ -9,12 +9,12 @@ import java.util.HashMap;
 
 public class Fox extends Animal implements Action {
 
+    private static final int FOX_MAX_AGE = 15;
     public Fox() {
-        this((int) (Math.random() * 15));
+        this(0);
     }
-
-    public Fox(int age) {
-        super(age, 15, Color.RED);
+    public Fox(double random) {
+        super((int) (random * FOX_MAX_AGE), FOX_MAX_AGE, Color.RED);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Fox extends Animal implements Action {
 
     @Override
     public Location breed(ArrayList<Location> emptyNeighbors) {
-        if (emptyNeighbors.isEmpty() || getEnergy() < 0.9 || Math.random() > getVitality()) {
+        if (emptyNeighbors.isEmpty() || getEnergy() < 0.55 || Math.random() > getVitality()) {
             return null;
         }
         clearEnergy();

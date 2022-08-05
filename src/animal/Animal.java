@@ -71,4 +71,12 @@ public abstract class Animal {
         }
         return false;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getAgeLimit() {
+        return ageLimit;
+    }
 }

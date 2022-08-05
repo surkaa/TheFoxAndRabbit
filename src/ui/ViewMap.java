@@ -23,12 +23,14 @@ public class ViewMap extends JPanel {
         for (int i = 0; i < theField.getHeight(); i++) {
             g.drawLine(0, i * GRID_SIZE, theField.getWidth() * GRID_SIZE, i * GRID_SIZE);
         }
-        for (int i = 0; i < theField.getHeight(); i++) {
-            for (int j = 0; j < theField.getWidth(); j++) {
-                Location location = new Location(i, j);
-                Action animal = theField.getAction(location);
+        for (int i = 0; i < theField.getWidth(); i++) {
+            for (int j = 0; j < theField.getHeight(); j++) {
+                Action animal = theField.getAction(new Location(i, j));
                 if (animal != null) {
-                    animal.draw(g, j * GRID_SIZE, i * GRID_SIZE, GRID_SIZE);
+                    animal.draw(g, i * GRID_SIZE, j * GRID_SIZE, GRID_SIZE);
+                } else {
+                    g.setColor(new Color(0, 255, 0, 150));
+                    g.fillRect(i * GRID_SIZE, j * GRID_SIZE, GRID_SIZE, GRID_SIZE);
                 }
             }
         }

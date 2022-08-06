@@ -1,7 +1,7 @@
 # TheFoxAndRabbit
 这是一个狐狸吃兔子的地图，参考[mooc翁恺老师的视频](https://www.icourse163.org/learn/ZJU-1001542001?tid=1467810462#/learn/content?type=detail&id=1249310254)  
 ## 展示
-![FoxAndRabbit](https://github.com/winingYang/TheFoxAndRabbit/blob/master/FoxAndRabbit.gif)  
+![FoxAndRabbit](https://github.com/winingYang/TheFoxAndRabbit/blob/master/src/res/FoxAndRabbit.gif)  
 简单介绍：为了更容易的区分，狐狸设置为了`红色`，兔子是`黄色`。颜色的`深浅`表示动物的`寿命`
 # 地图规则
 ## 1

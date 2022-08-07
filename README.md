@@ -1,4 +1,4 @@
-# TheFoxAndRabbit
+# TheFoxAndRabbit（已经移至[新地址](https://github.com/surkaa/FoxRabbit)）
 这是一个狐狸吃兔子的地图，参考[mooc翁恺老师的视频](https://www.icourse163.org/learn/ZJU-1001542001?tid=1467810462#/learn/content?type=detail&id=1249310254)  
 ## 展示
 ![FoxAndRabbit](https://github.com/winingYang/TheFoxAndRabbit/blob/master/src/res/FoxAndRabbit.gif)  
